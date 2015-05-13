@@ -26,6 +26,11 @@
 			var touchSupported = false,
 				startName = 'ontouchstart';
 
+			// Chrome Device Emulation mode properly reports maxTouchPoints
+			if (webkit && navigator.maxTouchPoints > 0) {
+				return true;
+			}
+
 			// WebKit, etc
 			if (startName in document.documentElement) {
 				return true;
